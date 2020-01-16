@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <!--2秒后跳转到自定义页面-->
+    <!-- <meta http-equiv="refresh" content="2; url=http://www.baidu.com" /> -->
+    <style type="text/css">
+        @font-face {
+            font-family: "MAILR___";
+            src: url("MAILR___.TTF");
+        }
+
+        p {
+            font-family: MAILR___;
+            font-size: 60px;
+        }
+
+        .hvcenter {
+            position: absolute;
+            top: 15%;
+            left: 12%;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = time;
+
+        function CurrentTime() {
+            var now = new Date();
+            var year = now.getFullYear();       //年
+            var month = now.getMonth() + 1;     //月
+            var day = now.getDate();            //日
+            var hh = now.getHours();            //时
+            var mm = now.getMinutes();          //分
+            var s = now.getSeconds();
+
+            var clock = year + " - ";
+            if (month < 10)
+                clock += "0";
+            clock += month + " - ";
+            if (day < 10)
+                clock += "0";
+            clock += day + "&nbsp;&nbsp;&nbsp;";
+            if (hh < 10)
+                clock += "0";
+            clock += hh + " : ";
+            if (mm < 10)
+                clock += '0';
+            clock += mm;
+            document.getElementById("time").innerHTML = clock;
+            if (hh >= 6 && hh <= 12) {
+                document.getElementById("sayhi").innerHTML = "早上好，欢迎来到传智健康管理系统";
+                // document.getElementById("myimg").src="../img/morning.jpg";
+            } else if (hh >= 13 && hh <= 16) {
+                document.getElementById("sayhi").innerHTML = "下午好，欢迎来到传智健康管理系统";
+                // document.getElementById("myimg").src="../img/morning.jpg";
+            } else if (hh >= 17 && hh <= 18) {
+                document.getElementById("sayhi").innerHTML = "傍晚好，欢迎来到传智健康管理系统";
+                // document.getElementById("myimg").src="../img/morning.jpg";
+            } else {
+                document.getElementById("sayhi").innerHTML = "晚上好，欢迎来到传智健康管理系统";
+                // document.getElementById("myimg").src="../img/morning.jpg";
+            }
+        }
+
+        function time() {
+            CurrentTime();
+            var now = new Date();
+            var s = now.getSeconds();
+            setTimeout(time2, (60 - s) * 1000);
+        }
+
+        function time2() {
+            CurrentTime();
+            setInterval(CurrentTime, 60 * 1000);
+        }
+
+
+    </script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/axios-0.18.0.js"></script>
+</head>
+<body>
+<!--<div id="bg_pic" style="position:absolute; width:100%; height:100%; z-index:-1">-->
+<!--<img id="myimg" src="../img/morning.jpg" alt="backgroundpicture"  class="blur" width="100%" height="100%">-->
+<!--</div>-->
+<div id="" style="width:1000px; height:500px;  text-align:center" class="hvcenter">
+    <p id="sayhi"></p>
+    <p id="time"></p>
+</div>
+</body>
+</html>
