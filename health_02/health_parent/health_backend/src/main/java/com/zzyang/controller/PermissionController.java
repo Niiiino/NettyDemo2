@@ -38,7 +38,7 @@ public class PermissionController {
         }
     }
 
-    //根据权限id查询权限列表
+    //根据角色id查询权限列表
     @RequestMapping("/findPermissionsById")
     public Result findPermissionsById(Integer id){
         try {

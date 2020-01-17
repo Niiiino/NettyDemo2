@@ -122,7 +122,9 @@
     </div>
 </div>
 </body>
-
+<script>
+    var Id ={};
+</script>
 <script>
     var vue = new Vue({
         el: '#app',
@@ -145,8 +147,11 @@
             this.findPage();
         },
         methods: {
+
             //编辑
             handleEdit() {
+                //alert(Id);
+                this.formData.id=Id;
                 //发送ajax请求，将修改后的表单数据提交到后台进行处理
                 axios.post("/permission/edit?checkitemIds="+this.checkitemIds,this.formData).then((res)=>{
                     //关闭新增窗口
@@ -192,6 +197,7 @@
             // 弹出编辑窗口
             handleUpdate(row) {
                 //alert(row.id);
+                Id=row.id;
                 this.dialogFormVisible4Edit=true;
                 this.activeName = 'first';
                 //发送ajax请求查询数据库中的所有检查项
